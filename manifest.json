@@ -1,0 +1,11 @@
+{
+  "id": "chaos_spire",
+  "name": "Chaos Spire",
+  "author": "chaospire",
+  "description": "Every turn, fate rolls the dice. STONKS or SKILL ISSUE? You decide nothing.",
+  "version": "1.0.0",
+  "has_dll": true,
+  "has_pck": false,
+  "dependencies": [],
+  "affects_gameplay": true
+}
