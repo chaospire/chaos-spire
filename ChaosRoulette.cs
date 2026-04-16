@@ -220,6 +220,7 @@ public static class ChaosRoulette
         };
 
         GD.Print($"[ChaosSpire] {tierTag} >> {effect.Name}");
+        ChaosAnnouncer.Show(effect.Name, effect.Tier);
 
         try
         {

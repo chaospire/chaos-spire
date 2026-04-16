@@ -16,42 +16,57 @@ Every time your turn starts in combat, the mod rolls one of **17 random effects*
 
 All effects use the game's built-in animation and UI — you see gold fly in, damage numbers pop, block shields appear, just like normal gameplay.
 
+An on-screen announcement shows the effect name and description each turn, automatically localized to your game language.
+
 ---
 
 ## Full Effect List
 
 ### Blessed (positive effects)
 
-| Effect | What happens |
-|--------|-------------|
-| **STONKS** | Gain 77 gold |
-| **PLOT ARMOR** | Gain 40 block |
-| **IDDQD** | Heal 30 HP |
-| **UNLIMITED POWER** | Gain 3 energy |
-| **THANOS SNAP** | Deal 30 damage to ALL enemies |
-| **CARD PRINTER GO BRRR** | Draw 3 cards |
-| **JUGGERNAUT** | Gain 3 Strength |
+| Effect | EN | KR | What happens |
+|--------|----|----|-------------|
+| STONKS | STONKS | 떡상 | Gain 77 gold |
+| PLOT ARMOR | PLOT ARMOR | 주인공 보정 | Gain 40 block |
+| IDDQD | IDDQD | 불사신 | Heal 30 HP |
+| UNLIMITED POWER | UNLIMITED POWER | 무한한 힘이다 | Gain 3 energy |
+| THANOS SNAP | THANOS SNAP | 타노스 핑거스냅 | Deal 30 damage to ALL enemies |
+| CARD PRINTER GO BRRR | CARD PRINTER GO BRRR | 카드 무한 복사기 | Draw 3 cards |
+| JUGGERNAUT | JUGGERNAUT | 광전사 | Gain 3 Strength |
 
 ### Cursed (negative effects)
 
-| Effect | What happens |
-|--------|-------------|
-| **NOT STONKS** | Lose 33% of your gold |
-| **SKILL ISSUE** | Take 12 damage |
-| **NERF BAT** | Lose all block |
-| **PAPER TIGER** | Gain 2 Vulnerable |
-| **HEALING SURGE** | All enemies heal 20 HP |
+| Effect | EN | KR | What happens |
+|--------|----|----|-------------|
+| NOT STONKS | NOT STONKS | 폭락 | Lose 33% of your gold |
+| SKILL ISSUE | SKILL ISSUE | 실력 이슈 | Take 12 damage |
+| NERF BAT | NERF BAT | 너프 당함 | Lose all block |
+| PAPER TIGER | PAPER TIGER | 종이호랑이 | Gain 2 Vulnerable |
+| HEALING SURGE | HEALING SURGE | 적 힐 받음 | All enemies heal 20 HP |
 
 ### Chaotic (mixed effects)
 
-| Effect | What happens |
-|--------|-------------|
-| **YOLO** | Take 8 damage, gain 88 gold |
-| **GLASS CANNON** | Gain 4 energy, take 10 damage |
-| **CRITICAL HIT** | Deal 99 damage to a random enemy |
-| **TRADE OFFER** | Heal 20 HP, lose 25 gold |
-| **ARMS RACE** | You gain 5 Strength, all enemies gain 3 Strength |
-| **NOTHING HAPPENED** | ... |
+| Effect | EN | KR | What happens |
+|--------|----|----|-------------|
+| YOLO | YOLO | 욜로 | Take 8 damage, gain 88 gold |
+| GLASS CANNON | GLASS CANNON | 유리대포 | Gain 4 energy, take 10 damage |
+| CRITICAL HIT | CRITICAL HIT! | 치명타! | Deal 99 damage to a random enemy |
+| TRADE OFFER | TRADE OFFER | 거래 제안 | Heal 20 HP, lose 25 gold |
+| ARMS RACE | ARMS RACE | 군비 경쟁 | You +5 Str, enemies +3 Str |
+| NOTHING HAPPENED | NOTHING HAPPENED | 아무 일도 없었다 | ... |
+
+### Supported Languages
+
+Effect names and descriptions are fully localized with culturally adapted translations:
+
+| Language | Example (STONKS) | Example (SKILL ISSUE) | Example (CRITICAL HIT) |
+|----------|------------------|-----------------------|------------------------|
+| English | STONKS | SKILL ISSUE | CRITICAL HIT! |
+| Korean | 떡상 | 실력 이슈 | 치명타! |
+| Chinese | 赚麻了 | 菜就多练 | 暴击! |
+| Japanese | 爆益 | 下手くそ | 会心の一撃! |
+
+The mod reads your game language setting automatically. Unsupported languages fall back to English.
 
 ---
 
@@ -128,6 +143,8 @@ Effects.Add(new("YOUR EFFECT NAME",
     }));
 ```
 
+Then add localized names and descriptions in `ChaosLocale.cs`.
+
 Pull requests are welcome.
 
 ---
@@ -146,16 +163,9 @@ The mod loads in multiplayer, but random effects are rolled locally per player. 
 
 Yes. Chaos Spire uses standard Harmony patching and does not conflict with other mods unless they also patch `Hook.AfterPlayerTurnStart`.
 
-### How do I see which effect triggered?
+### How do I see the effect log?
 
-Open the dev console in-game (press `` ` `` or `Shift+8`). Each effect is logged as `[ChaosSpire] BLESSED >> STONKS` or similar.
-
-### How do I enable the dev console?
-
-Add `"full_console": true` to your `settings.save` file. On macOS, it's at:
-```
-~/Library/Application Support/SlayTheSpire2/steam/<your-steam-id>/settings.save
-```
+An on-screen announcement appears automatically each turn. You can also open the dev console (press `` ` `` or `Shift+8`) to see the full log.
 
 ### Is this mod safe? Does it modify game files?
 
