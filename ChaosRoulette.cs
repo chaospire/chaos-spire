@@ -26,7 +26,7 @@ public record ChaosEffect(
 
 public static class ChaosRoulette
 {
-    private static readonly Random Rng = new();
+    private static readonly Random Rng = Random.Shared;
     private static readonly List<ChaosEffect> Effects = new();
 
     static ChaosRoulette()
